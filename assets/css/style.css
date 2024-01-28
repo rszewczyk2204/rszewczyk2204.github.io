@@ -856,6 +856,74 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
 
+.repos-list {
+    border-radius: 20px;
+    border: 1px solid var(--jet);
+    padding: 10px;
+    width: 100%;
+}
+
+.repo-item {
+    position: relative;
+    left: 15px;
+    height: fit-content;
+}
+
+.expand-repo-info {
+    visibility: hidden;
+    height: 0;
+}
+
+.expand-repo-info.active {
+    visibility: visible;
+    height: auto;
+    color: var(--white-2);
+    padding: 1px;
+}
+
+.repo-link {
+    color: var(--orange-yellow-crayola);
+    width: fit-content;
+}
+
+.expand-repo-button span {
+    position: absolute;
+    top: -10px;
+    right: 5px;
+    border-radius: 0 15px;
+    font-size: 13px;
+    color: var(--orange-yellow-crayola);
+    background: var(--border-gradient-onyx);
+    padding: 5px;
+    box-shadow: var(--shadow-2);
+    transition: var(--transition-1);
+    display: none;
+    max-width: fit-content;
+}
+
+.expand-repo-button::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    max-width: fit-content;
+}
+
+.expand-repo-button:hover,
+.expand-repo-button:focus {
+    background: var(--bg-gradient-yellow-1);
+}
+
+.expand-repo-button ion-icon {
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 15px;
+    border-radius: 0 15px;
+    color: var(--orange-yellow-crayola);
+    box-shadow: var(--shadow-2);
+    max-width: 20px;
+}
 
 @media (min-width: 450px) {
 
@@ -865,6 +933,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
     .project-img,
     .blog-banner-box { height: auto; }
+
+    .expand-repo-button ion-icon {
+        display: block;
+    }
 
 }
 
