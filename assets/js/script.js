@@ -38,7 +38,7 @@ const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
 const filterFunc = function (selectedValue) {
-    filterItems.forEach((filterItem) => {
+    filterItems.forEach((filterItem, i) => {
         if (selectedValue === "all") {
             filterItems[i].classList.add("active");
         } else if (selectedValue === filterItems[i].dataset.category) {
@@ -62,3 +62,29 @@ filterBtn.forEach((btn) => {
         lastClickedBtn = this;
     });
 });
+
+const expandButtons = document.querySelectorAll("[data-expand-button]");
+const expandInfos = document.querySelectorAll("[data-expand-info]");
+
+expandButtons.forEach((expandButton) => {
+    expandButton.addEventListener("click", function () {
+        expandInfos.forEach((expandInfo, i) => {
+            if (this.innerHTML.toLowerCase().includes(expandInfo.dataset.expandInfo)) {
+                if (expandInfo.classList.contains("active")) {
+                    expandInfo.classList.remove("active")
+                    expandButtons[i].classList.add("active");
+                } else {
+                    expandInfo.classList.add("active");
+                    expandButtons[i].classList.remove("active");
+                }
+            }
+        })
+    })
+})
+
+const reposList = document.querySelector("[data-repos-list]");
+
+if (reposList.querySelectorAll('li').length > 0) {
+    reposList.classList.add('active');
+}
+
